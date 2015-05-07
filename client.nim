@@ -22,7 +22,7 @@ proc unixSocket(sockPath: string): SockAddrUn =
 proc newClient*(socketPath: string = "/var/run/docker.sock") : Docker =
   return Docker(socketPath: socketPath)
 
-proc connect(client: var Docker) : void =
+proc connect(client: var Docker) : void {.raises: [IOError].} =
   var sockAddr: SockAddrUn
   sockAddr = unixSocket(client.socketPath)
   const SockAddrHeadLen = 2
