@@ -7,6 +7,7 @@ type
     socketPath*: string
     socket: SocketHandle
 
+  # move to https://github.com/nim-lang/Nim/blob/4a3e63e32fc055bf9f392b65a14998e6ba082176/lib/posix/posix.nim#L499
   SockAddrUn = object ## struct sockaddr_un
     family*: TSa_Family         ## Address family.
     path*: array [0..UnixPathMax, char] ## Socket address (variable-length data).
